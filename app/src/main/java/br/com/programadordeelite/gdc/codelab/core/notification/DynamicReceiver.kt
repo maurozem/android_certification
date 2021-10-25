@@ -7,10 +7,11 @@ import android.widget.Toast
 
 class DynamicReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        // +---------------------------------------------------------------------------------+
-        // | ESCREVA SEU CÓDIGO ACOMPANHANDO A AULA NO YOUTUBE                               |
-        // | JÁ APROVEITA E SEGUE O CANAL >> LINK PARA AS AULAS:                             |
-        // | https://youtu.be/iDlRsZ-hAU8 & https://youtu.be/vGwr9XZ8xDY                     |
-        // +---------------------------------------------------------------------------------+
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
+            Toast.makeText(context, "app reinicio com sucesso", Toast.LENGTH_LONG).show()
+        }
+        if (intent?.action == Intent.ACTION_AIRPLANE_MODE_CHANGED) {
+            Toast.makeText(context, "modo aviao alterado", Toast.LENGTH_LONG).show()
+        }
     }
 }
